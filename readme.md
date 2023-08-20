@@ -16,7 +16,7 @@ export function sendOnBoardingEmail({ approved }: LoanApplicationDecision) {
 }
 ```
 
-This code will create an aws lambda function called sendOnBoardingEmail. @trigger tells the library to generate an eventbridge rule that will call the lambda when an event with detailType LoanApplicationDecisioned is called. This particular case also filters the detail to only fire when approved = true int the event payload. Finally, the library will inject code into the lambda to fire a new event (OnboardingEmailSent) with the return value of the lambda function.
+This code will create an aws lambda function called sendOnBoardingEmail. @trigger tells the library to generate an eventbridge rule that will call the lambda when an event with detailType LoanApplicationDecisioned is called. This particular case also filters the detail to only fire when approved = true in the event payload. Finally, the library will inject code into the lambda to fire a new event (OnboardingEmailSent) with the return value of the lambda function.
 
 ## Installation:
 
@@ -30,10 +30,10 @@ Follow the directions for [configuring cdk](https://docs.aws.amazon.com/cdk/v2/g
 
 ---
 
-```bash
+```
 npm install
-npm build`
-cdk bootstrap aws://{act number}/{region}`
+npm build
+cdk bootstrap aws://#########/{region}`
 cdk deploy
 ```
 
@@ -62,9 +62,10 @@ When [ProcessedFraud]
 
 ```
 
-TODOS:
+**TODOS:**
 
 -   [ ] Type validation at build time
+-   [ ] Fix gherkin output ordering
 -   [ ] Searchable DAG view
 -   [ ] Type support for triggerTypes (
         When [LoanApplicationDecisioned]
@@ -80,7 +81,10 @@ TODOS:
 
 The system generates a json structure for each event then processes the json to create the gherkin. With bi-directional support, we can begin to create a domain specific language (in gherkin to begin) that can be used to generate code for new features.
 
-TODOS:
+**Current:** `Code -> Json -> Gherkin`\
+**Bidirectional:** `Gherkin -> Json -> Code`
+
+**TODOS:**
 
 -   [ ] Given well-defined Gherkin, generate lambda and rule (create grammar/parser)
 -   [ ] Code completion tool
