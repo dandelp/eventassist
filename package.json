@@ -3,6 +3,11 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "licenses": [
+        {
+            "type": "Apache-2.0"
+        }
+    ],
     "scripts": {
         "dev": "ts-node-dev --exit-child src/index.ts",
         "start": "ts-node src/index.ts"

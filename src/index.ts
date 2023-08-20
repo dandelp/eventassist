@@ -159,7 +159,7 @@ const run = async () => {
     const tsFiles = getFilePathsRecursively(folder).filter((file) =>
         file.endsWith('.ts')
     )
-    const events = []
+    const events: EventFunction[] = []
     const jsonOutputFilePath = './eventBridgeRules.json'
     const outputDirectory = './functionCode'
     for (const tsFile of tsFiles) {
